@@ -1,0 +1,240 @@
+11:10:54.447661 IP 172.16.1.1.ssh > 172.16.1.2.52819: Flags [P.], seq 1480402535:1480402651, ack 3016911012, win 291, length 116
+11:10:54.447904 IP 172.16.1.1.ssh > 172.16.1.2.52819: Flags [P.], seq 116:232, ack 1, win 291, length 116
+11:10:54.448498 IP 172.16.1.7.51061 > a.hub.com.pl.http: Flags [.], seq 1826193961:1826193962, ack 1630254087, win 63, length 1
+11:10:54.448949 IP 172.16.1.2.52819 > 172.16.1.1.ssh: Flags [.], ack 232, win 60, length 0
+11:10:54.496817 IP i.hub.com.pl.http > 172.16.1.7.50807: Flags [F.], seq 2710721102, ack 1524255592, win 143, length 0
+11:10:54.498065 IP 172.16.1.7.50807 > i.hub.com.pl.http: Flags [.], ack 1, win 322, length 0
+11:10:54.516770 IP a.hub.com.pl.http > 172.16.1.7.51061: Flags [.], ack 1, win 139, options [nop,nop,sack 1 {0:1}], length 0
+11:10:54.586892 IP ec2-54-247-68-89.eu-west-1.compute.amazonaws.com.http > 172.16.1.7.51013: Flags [F.], seq 2872051346, ack 4257026688, win 66, length 0
+11:10:54.588366 IP 172.16.1.7.51013 > ec2-54-247-68-89.eu-west-1.compute.amazonaws.com.http: Flags [.], ack 1, win 65, length 0
+11:10:54.673418 IP 172.16.1.2.52505 > 64.233.162.188.https: Flags [.], seq 4012936810:4012936811, ack 509920649, win 63, length 1
+11:10:54.746746 IP 64.233.162.188.https > 172.16.1.2.52505: Flags [.], ack 1, win 352, options [nop,nop,sack 1 {0:1}], length 0
+11:10:54.902365 ARP, Request who-has 172.16.1.3 tell 172.16.1.2, length 46
+11:10:55.205030 IP 172.16.1.2.53054 > s1.tlen.pl.https: Flags [S], seq 2905356574, win 8192, options [mss 1460,nop,wscale 8,nop,nop,sackOK], length 0
+11:10:55.238612 IP6 fe80::b91f:dd5a:43cb:f104.57270 > ff02::c.1900: UDP, length 146
+11:10:55.276818 IP s1.tlen.pl.https > 172.16.1.2.53054: Flags [S.], seq 3564195532, ack 2905356575, win 5840, options [mss 1400,nop,nop,sackOK,nop,wscale 1], length 0
+11:10:55.277977 IP 172.16.1.2.53054 > s1.tlen.pl.https: Flags [.], ack 1, win 64, length 0
+11:10:55.278729 IP 172.16.1.2.53054 > s1.tlen.pl.https: Flags [P.], seq 1:30, ack 1, win 64, length 29
+11:10:55.336913 IP s1.tlen.pl.https > 172.16.1.2.53054: Flags [.], ack 30, win 2905, length 0
+11:10:55.336967 IP s1.tlen.pl.https > 172.16.1.2.53054: Flags [P.], seq 1:212, ack 30, win 2920, length 211
+11:10:55.340065 IP 172.16.1.2.53054 > s1.tlen.pl.https: Flags [P.], seq 30:211, ack 212, win 64, length 181
+11:10:55.396802 IP s1.tlen.pl.https > 172.16.1.2.53054: Flags [P.], seq 212:231, ack 211, win 2920, length 19
+11:10:55.399125 IP 172.16.1.2.53054 > s1.tlen.pl.https: Flags [P.], seq 211:451, ack 231, win 64, length 240
+11:10:55.496843 IP s1.tlen.pl.https > 172.16.1.2.53054: Flags [.], ack 451, win 2920, length 0
+11:10:55.507195 IP 172.16.1.7.51096 > interia.hit.gemius.pl.http: Flags [F.], seq 1710016236, ack 2496043616, win 16137, length 0
+11:10:55.526842 IP s1.tlen.pl.https > 172.16.1.2.53054: Flags [P.], seq 231:279, ack 451, win 2920, length 48
+11:10:55.558798 IP 172.16.1.2.53054 > s1.tlen.pl.https: Flags [.], ack 279, win 63, length 0
+11:10:55.657354 IP 172.16.1.7.51081 > hlbf.interia.pl.http: Flags [.], seq 925275765:925275766, ack 3234885555, win 62, length 1
+11:10:55.717481 IP 172.16.1.7.51090 > cache.google.com.http: Flags [.], seq 4275437711:4275437712, ack 2882100227, win 64, length 1
+11:10:55.726861 IP hlbf.interia.pl.http > 172.16.1.7.51081: Flags [.], ack 1, win 39, options [nop,nop,sack 1 {0:1}], length 0
+11:10:55.727498 IP 172.16.0.10.50888 > 151.193.120.146.https: Flags [P.], seq 1584402837:1584402874, ack 778950548, win 15912, length 37
+11:10:55.776969 IP cache.google.com.http > 172.16.1.7.51090: Flags [.], ack 1, win 246, options [nop,nop,sack 1 {0:1}], length 0
+11:10:55.806921 IP 151.193.120.146.https > 172.16.0.10.50888: Flags [.], ack 37, win 32768, length 0
+11:10:55.806952 IP 151.193.120.146.https > 172.16.0.10.50888: Flags [P.], seq 1:38, ack 37, win 32768, length 37
+11:10:55.826742 IP ec2-54-171-228-71.eu-west-1.compute.amazonaws.com.http > 172.16.1.7.50913: Flags [F.], seq 4075755561, ack 82638250, win 78, length 0
+11:10:55.827679 IP 172.16.1.7.50913 > ec2-54-171-228-71.eu-west-1.compute.amazonaws.com.http: Flags [.], ack 1, win 60, length 0
+11:10:56.007341 IP 172.16.0.10.50888 > 151.193.120.146.https: Flags [.], ack 38, win 15875, length 0
+11:10:56.246807 IP ec2-54-68-94-199.us-west-2.compute.amazonaws.com.http > 172.16.1.7.51014: Flags [F.], seq 3462624024, ack 1796346901, win 66, length 0
+11:10:56.248178 IP 172.16.1.7.51014 > ec2-54-68-94-199.us-west-2.compute.amazonaws.com.http: Flags [.], ack 1, win 61, length 0
+11:10:56.636865 IP ec2-54-229-29-25.eu-west-1.compute.amazonaws.com.http > 172.16.1.7.51028: Flags [F.], seq 757631868, ack 426199766, win 65, length 0
+11:10:56.638504 IP 172.16.1.7.51028 > ec2-54-229-29-25.eu-west-1.compute.amazonaws.com.http: Flags [.], ack 1, win 61, length 0
+11:10:56.676800 IP ec2-54-229-18-192.eu-west-1.compute.amazonaws.com.https > 172.16.1.7.50952: Flags [P.], seq 2911440551:2911440582, ack 613244973, win 79, length 31
+11:10:56.726778 IP ec2-23-23-114-229.compute-1.amazonaws.com.http > 172.16.1.7.51030: Flags [F.], seq 1045973880, ack 3173936032, win 63, length 0
+11:10:56.727775 IP 172.16.1.7.51030 > ec2-23-23-114-229.compute-1.amazonaws.com.http: Flags [.], ack 1, win 64, length 0
+11:10:56.877265 IP 172.16.1.7.50952 > ec2-54-229-18-192.eu-west-1.compute.amazonaws.com.https: Flags [.], ack 31, win 61, length 0
+11:10:56.904081 ARP, Request who-has 172.16.1.3 tell 172.16.1.2, length 46
+11:10:57.326827 IP ec2-54-236-178-88.compute-1.amazonaws.com.http > 172.16.1.7.51040: Flags [F.], seq 687564627, ack 3308193336, win 63, length 0
+11:10:57.327969 IP 172.16.1.7.51040 > ec2-54-236-178-88.compute-1.amazonaws.com.http: Flags [.], ack 1, win 63, length 0
+11:10:57.511281 IP 172.16.1.2.53014 > 190.93.246.58.http: Flags [F.], seq 248134517, ack 3062334765, win 63, length 0
+11:10:57.511470 IP 172.16.1.2.53013 > 190.93.246.58.http: Flags [F.], seq 1631239332, ack 1068584565, win 62, length 0
+11:10:57.511608 IP 172.16.1.2.53016 > 190.93.246.58.http: Flags [F.], seq 4214850686, ack 1989523562, win 62, length 0
+11:10:57.511750 IP 172.16.1.2.52991 > 190.93.246.58.http: Flags [F.], seq 3950729973, ack 602602545, win 295, length 0
+11:10:57.511895 IP 172.16.1.2.53015 > 190.93.246.58.http: Flags [F.], seq 451773430, ack 3353682163, win 60, length 0
+11:10:57.512092 IP 172.16.1.2.53047 > kb-edupert.geant.net.http: Flags [F.], seq 4079590531, ack 3357865441, win 63, length 0
+11:10:57.512270 IP 172.16.1.2.53046 > kb-edupert.geant.net.http: Flags [F.], seq 2619423326, ack 1542444308, win 579, length 0
+11:10:57.512462 IP 172.16.1.2.52990 > 190.93.246.183.http: Flags [F.], seq 1269239310, ack 4089087353, win 60, length 0
+11:10:57.512639 IP 172.16.1.2.53003 > 104.16.12.8.http: Flags [F.], seq 3924570658, ack 3343488171, win 289, length 0
+11:10:57.512961 IP 172.16.1.2.53028 > 104.16.12.8.http: Flags [F.], seq 1794305378, ack 3168113235, win 60, length 0
+11:10:57.577274 IP 190.93.246.58.http > 172.16.1.2.53014: Flags [.], ack 1, win 30, length 0
+11:10:57.577288 IP 190.93.246.58.http > 172.16.1.2.53013: Flags [.], ack 1, win 31, length 0
+11:10:57.577305 IP 190.93.246.58.http > 172.16.1.2.52991: Flags [.], ack 1, win 37, length 0
+11:10:57.577310 IP 190.93.246.58.http > 172.16.1.2.53016: Flags [.], ack 1, win 31, length 0
+11:10:57.577315 IP 190.93.246.58.http > 172.16.1.2.53015: Flags [.], ack 1, win 33, length 0
+11:10:57.577320 IP 190.93.246.183.http > 172.16.1.2.52990: Flags [.], ack 1, win 33, length 0
+11:10:57.577325 IP 104.16.12.8.http > 172.16.1.2.53028: Flags [.], ack 1, win 30, length 0
+11:10:57.577340 IP 104.16.12.8.http > 172.16.1.2.53003: Flags [.], ack 1, win 32, length 0
+11:10:57.606902 IP kb-edupert.geant.net.http > 172.16.1.2.53047: Flags [.], ack 1, win 73, length 0
+11:10:57.606943 IP kb-edupert.geant.net.http > 172.16.1.2.53046: Flags [.], ack 1, win 71, length 0
+11:10:57.746777 IP cv.interia.pl.http > 172.16.1.7.50798: Flags [F.], seq 472187105, ack 870014461, win 48, length 0
+11:10:57.747969 IP 172.16.1.7.50798 > cv.interia.pl.http: Flags [.], ack 1, win 628, length 0
+11:10:57.766749 IP cv.interia.pl.http > 172.16.1.7.50796: Flags [F.], seq 961468408, ack 2783579258, win 182, length 0
+11:10:57.767542 IP 172.16.1.7.50796 > cv.interia.pl.http: Flags [.], ack 1, win 1229, length 0
+11:10:57.796810 IP cv.interia.pl.http > 172.16.1.7.50794: Flags [F.], seq 2419060835, ack 1552003550, win 215, length 0
+11:10:57.797712 IP 172.16.1.7.50794 > cv.interia.pl.http: Flags [.], ack 1, win 660, length 0
+11:10:57.848447 IP 172.16.1.2.53055 > kb-edupert.geant.net.http: Flags [S], seq 3060650617, win 8192, options [mss 1460,nop,wscale 8,nop,nop,sackOK], length 0
+11:10:57.848702 IP 172.16.1.2.53056 > kb-edupert.geant.net.http: Flags [S], seq 3217565218, win 8192, options [mss 1460,nop,wscale 8,nop,nop,sackOK], length 0
+11:10:57.848940 IP 172.16.1.2.53057 > kb-edupert.geant.net.http: Flags [S], seq 2766273948, win 8192, options [mss 1460,nop,wscale 8,nop,nop,sackOK], length 0
+11:10:57.849123 IP 172.16.1.2.53058 > kb-edupert.geant.net.http: Flags [S], seq 3652022198, win 8192, options [mss 1460,nop,wscale 8,nop,nop,sackOK], length 0
+11:10:57.849363 IP 172.16.1.2.53059 > kb-edupert.geant.net.http: Flags [S], seq 1225922860, win 8192, options [mss 1460,nop,wscale 8,nop,nop,sackOK], length 0
+11:10:57.849811 IP 172.16.1.2.53060 > kb-edupert.geant.net.http: Flags [S], seq 1642095927, win 8192, options [mss 1460,nop,wscale 8,nop,nop,sackOK], length 0
+11:10:57.850097 IP 172.16.1.2.53061 > cache.google.com.http: Flags [S], seq 3285341166, win 8192, options [mss 1460,nop,wscale 8,nop,nop,sackOK], length 0
+11:10:57.850276 IP 172.16.1.2.53062 > cache.google.com.http: Flags [S], seq 1993687698, win 8192, options [mss 1460,nop,wscale 8,nop,nop,sackOK], length 0
+11:10:57.850538 IP 172.16.1.2.53063 > fra07s64-in-f19.1e100.net.http: Flags [S], seq 2622552868, win 8192, options [mss 1460,nop,wscale 8,nop,nop,sackOK], length 0
+11:10:57.850751 IP 172.16.1.2.53064 > fra07s64-in-f19.1e100.net.http: Flags [S], seq 1307864609, win 8192, options [mss 1460,nop,wscale 8,nop,nop,sackOK], length 0
+11:10:57.900108 ARP, Request who-has 172.16.1.3 tell 172.16.1.2, length 46
+11:10:57.907288 IP 172.16.1.7.51096 > interia.hit.gemius.pl.http: Flags [F.], seq 0, ack 1, win 16137, length 0
+11:10:57.916870 IP cache.google.com.http > 172.16.1.2.53061: Flags [S.], seq 3721611372, ack 3285341167, win 29200, options [mss 1400,nop,nop,sackOK,nop,wscale 7], length 0
+11:10:57.916918 IP cache.google.com.http > 172.16.1.2.53062: Flags [S.], seq 1486091317, ack 1993687699, win 29200, options [mss 1400,nop,nop,sackOK,nop,wscale 7], length 0
+11:10:57.917639 IP 172.16.1.2.53061 > cache.google.com.http: Flags [.], ack 1, win 64, length 0
+11:10:57.917878 IP 172.16.1.2.53062 > cache.google.com.http: Flags [.], ack 1, win 64, length 0
+11:10:57.936856 IP fra07s64-in-f19.1e100.net.http > 172.16.1.2.53063: Flags [S.], seq 1043180962, ack 2622552869, win 42900, options [mss 1400,nop,nop,sackOK,nop,wscale 7], length 0
+11:10:57.936901 IP fra07s64-in-f19.1e100.net.http > 172.16.1.2.53064: Flags [S.], seq 3957989502, ack 1307864610, win 42900, options [mss 1400,nop,nop,sackOK,nop,wscale 7], length 0
+11:10:57.937596 IP 172.16.1.2.53063 > fra07s64-in-f19.1e100.net.http: Flags [.], ack 1, win 64, length 0
+11:10:57.937749 IP 172.16.1.2.53064 > fra07s64-in-f19.1e100.net.http: Flags [.], ack 1, win 64, length 0
+11:10:57.947202 IP kb-edupert.geant.net.http > 172.16.1.2.53055: Flags [S.], seq 1454295725, ack 3060650618, win 14600, options [mss 1400,nop,nop,sackOK,nop,wscale 8], length 0
+11:10:57.947251 IP kb-edupert.geant.net.http > 172.16.1.2.53056: Flags [S.], seq 2811181697, ack 3217565219, win 14600, options [mss 1400,nop,nop,sackOK,nop,wscale 8], length 0
+11:10:57.947276 IP kb-edupert.geant.net.http > 172.16.1.2.53057: Flags [S.], seq 3403883591, ack 2766273949, win 14600, options [mss 1400,nop,nop,sackOK,nop,wscale 8], length 0
+11:10:57.947319 IP kb-edupert.geant.net.http > 172.16.1.2.53058: Flags [S.], seq 1473398914, ack 3652022199, win 14600, options [mss 1400,nop,nop,sackOK,nop,wscale 8], length 0
+11:10:57.947340 IP kb-edupert.geant.net.http > 172.16.1.2.53060: Flags [S.], seq 2802445222, ack 1642095928, win 14600, options [mss 1400,nop,nop,sackOK,nop,wscale 8], length 0
+11:10:57.947380 IP kb-edupert.geant.net.http > 172.16.1.2.53059: Flags [S.], seq 3906752634, ack 1225922861, win 14600, options [mss 1400,nop,nop,sackOK,nop,wscale 8], length 0
+11:10:57.948308 IP 172.16.1.2.53055 > kb-edupert.geant.net.http: Flags [.], ack 1, win 64, length 0
+11:10:57.948467 IP 172.16.1.2.53056 > kb-edupert.geant.net.http: Flags [.], ack 1, win 64, length 0
+11:10:57.948802 IP 172.16.1.2.53057 > kb-edupert.geant.net.http: Flags [.], ack 1, win 64, length 0
+11:10:57.949070 IP 172.16.1.2.53058 > kb-edupert.geant.net.http: Flags [.], ack 1, win 64, length 0
+11:10:57.949258 IP 172.16.1.2.53060 > kb-edupert.geant.net.http: Flags [.], ack 1, win 64, length 0
+11:10:57.949476 IP 172.16.1.2.53059 > kb-edupert.geant.net.http: Flags [.], ack 1, win 64, length 0
+11:10:57.950101 IP 172.16.1.2.53055 > kb-edupert.geant.net.http: Flags [P.], seq 1:733, ack 1, win 64, length 732
+11:10:58.016801 IP ec2-54-194-115-35.eu-west-1.compute.amazonaws.com.https > 172.16.1.7.50917: Flags [F.], seq 1013028655, ack 3907250631, win 66, length 0
+11:10:58.017828 IP 172.16.1.7.50917 > ec2-54-194-115-35.eu-west-1.compute.amazonaws.com.https: Flags [.], ack 1, win 60, length 0
+11:10:58.056792 IP kb-edupert.geant.net.http > 172.16.1.2.53055: Flags [.], ack 733, win 63, length 0
+11:10:58.238989 IP6 fe80::b91f:dd5a:43cb:f104.57270 > ff02::c.1900: UDP, length 146
+11:10:58.457216 IP kb-edupert.geant.net.http > 172.16.1.2.53055: Flags [.], seq 1:1401, ack 733, win 63, length 1400
+11:10:58.458471 IP kb-edupert.geant.net.http > 172.16.1.2.53055: Flags [.], seq 1401:2801, ack 733, win 63, length 1400
+11:10:58.459484 IP kb-edupert.geant.net.http > 172.16.1.2.53055: Flags [.], seq 2801:4201, ack 733, win 63, length 1400
+11:10:58.460639 IP kb-edupert.geant.net.http > 172.16.1.2.53055: Flags [.], seq 4201:5601, ack 733, win 63, length 1400
+11:10:58.461809 IP kb-edupert.geant.net.http > 172.16.1.2.53055: Flags [.], seq 5601:7001, ack 733, win 63, length 1400
+11:10:58.462970 IP kb-edupert.geant.net.http > 172.16.1.2.53055: Flags [P.], seq 7001:8401, ack 733, win 63, length 1400
+11:10:58.464141 IP kb-edupert.geant.net.http > 172.16.1.2.53055: Flags [.], seq 8401:9801, ack 733, win 63, length 1400
+11:10:58.465292 IP kb-edupert.geant.net.http > 172.16.1.2.53055: Flags [.], seq 9801:11201, ack 733, win 63, length 1400
+11:10:58.466449 IP kb-edupert.geant.net.http > 172.16.1.2.53055: Flags [P.], seq 11201:12386, ack 733, win 63, length 1185
+11:10:58.536854 IP cache.google.com.http > 172.16.1.7.51059: Flags [F.], seq 2217692914, ack 1604423216, win 237, length 0
+11:10:58.538141 IP 172.16.1.7.51059 > cache.google.com.http: Flags [.], ack 1, win 65, length 0
+11:10:58.551654 IP 172.16.1.2.53055 > kb-edupert.geant.net.http: Flags [.], ack 2801, win 64, length 0
+11:10:58.551789 IP 172.16.1.2.53055 > kb-edupert.geant.net.http: Flags [.], ack 5601, win 64, length 0
+11:10:58.552952 IP 172.16.1.2.53055 > kb-edupert.geant.net.http: Flags [.], ack 8401, win 64, length 0
+11:10:58.553232 IP 172.16.1.2.53055 > kb-edupert.geant.net.http: Flags [.], ack 11201, win 64, length 0
+11:10:58.595186 IP 172.16.1.2.53056 > kb-edupert.geant.net.http: Flags [P.], seq 1:796, ack 1, win 64, length 795
+11:10:58.595814 IP 172.16.1.2.53055 > kb-edupert.geant.net.http: Flags [P.], seq 733:1547, ack 12386, win 60, length 814
+11:10:58.598584 IP 172.16.1.2.53057 > kb-edupert.geant.net.http: Flags [P.], seq 1:799, ack 1, win 64, length 798
+11:10:58.599603 IP 172.16.1.2.53058 > kb-edupert.geant.net.http: Flags [P.], seq 1:1032, ack 1, win 64, length 1031
+11:10:58.600094 IP 172.16.1.2.52926 > fra07s64-in-f19.1e100.net.http: Flags [P.], seq 64632064:64633305, ack 1246170686, win 64, length 1241
+11:10:58.600398 IP 172.16.1.2.53059 > kb-edupert.geant.net.http: Flags [P.], seq 1:891, ack 1, win 64, length 890
+11:10:58.600823 IP 172.16.1.2.53060 > kb-edupert.geant.net.http: Flags [P.], seq 1:860, ack 1, win 64, length 859
+11:10:58.680911 IP 172.16.1.7.50917 > ec2-54-194-115-35.eu-west-1.compute.amazonaws.com.https: Flags [F.], seq 1, ack 1, win 60, length 0
+11:10:58.696880 IP kb-edupert.geant.net.http > 172.16.1.2.53056: Flags [.], ack 796, win 64, length 0
+11:10:58.696907 IP kb-edupert.geant.net.http > 172.16.1.2.53056: Flags [P.], seq 1:295, ack 796, win 64, length 294
+11:10:58.706886 IP kb-edupert.geant.net.http > 172.16.1.2.53055: Flags [.], ack 1547, win 70, length 0
+11:10:58.706908 IP kb-edupert.geant.net.http > 172.16.1.2.53055: Flags [P.], seq 12386:12678, ack 1547, win 70, length 292
+11:10:58.707110 IP fra07s64-in-f19.1e100.net.http > 172.16.1.2.52926: Flags [.], ack 1241, win 397, length 0
+11:10:58.717430 IP fra07s64-in-f19.1e100.net.http > 172.16.1.2.52926: Flags [.], seq 1:1401, ack 1241, win 397, length 1400
+11:10:58.718272 IP fra07s64-in-f19.1e100.net.http > 172.16.1.2.52926: Flags [P.], seq 1401:1585, ack 1241, win 397, length 184
+11:10:58.718356 IP kb-edupert.geant.net.http > 172.16.1.2.53057: Flags [.], ack 799, win 64, length 0
+11:10:58.718418 IP kb-edupert.geant.net.http > 172.16.1.2.53057: Flags [P.], seq 1:294, ack 799, win 64, length 293
+11:10:58.718705 IP kb-edupert.geant.net.http > 172.16.1.2.53058: Flags [.], ack 1032, win 66, length 0
+11:10:58.718736 IP kb-edupert.geant.net.http > 172.16.1.2.53058: Flags [P.], seq 1:157, ack 1032, win 66, length 156
+11:10:58.720174 IP 172.16.1.2.52926 > fra07s64-in-f19.1e100.net.http: Flags [.], ack 1585, win 64, length 0
+11:10:58.737006 IP kb-edupert.geant.net.http > 172.16.1.2.53059: Flags [.], ack 891, win 64, length 0
+11:10:58.737039 IP kb-edupert.geant.net.http > 172.16.1.2.53059: Flags [P.], seq 1:157, ack 891, win 64, length 156
+11:10:58.737097 IP kb-edupert.geant.net.http > 172.16.1.2.53060: Flags [.], ack 860, win 64, length 0
+11:10:58.737117 IP kb-edupert.geant.net.http > 172.16.1.2.53060: Flags [P.], seq 1:157, ack 860, win 64, length 156
+11:10:58.740814 IP 172.16.1.2.53056 > kb-edupert.geant.net.http: Flags [.], ack 295, win 63, length 0
+11:10:58.754103 IP 172.16.1.2.53055 > kb-edupert.geant.net.http: Flags [.], ack 12678, win 64, length 0
+11:10:58.756773 IP ec2-54-194-115-35.eu-west-1.compute.amazonaws.com.https > 172.16.1.7.50917: Flags [.], ack 2, win 66, length 0
+11:10:58.763985 IP 172.16.1.2.53057 > kb-edupert.geant.net.http: Flags [.], ack 294, win 63, length 0
+11:10:58.772705 IP 172.16.1.2.53058 > kb-edupert.geant.net.http: Flags [.], ack 157, win 64, length 0
+11:10:58.783703 IP 172.16.1.2.53060 > kb-edupert.geant.net.http: Flags [.], ack 157, win 64, length 0
+11:10:58.787630 IP 172.16.1.2.53059 > kb-edupert.geant.net.http: Flags [.], ack 157, win 64, length 0
+11:10:58.794499 IP 172.16.1.2.52994 > cache.google.com.http: Flags [P.], seq 3843166374:3843166824, ack 1878867282, win 59, length 450
+11:10:58.801062 IP 172.16.1.2.53060 > kb-edupert.geant.net.http: Flags [P.], seq 860:1686, ack 157, win 64, length 826
+11:10:58.807668 ARP, Request who-has ns.ls.lv tell 172.16.1.101, length 46
+11:10:58.818295 ARP, Request who-has 172.16.1.1 (00:27:0e:04:01:d2 (oui Unknown)) tell 172.16.1.7, length 46
+11:10:58.818328 ARP, Reply 172.16.1.1 is-at 00:27:0e:04:01:d2 (oui Unknown), length 28
+11:10:58.856852 IP cache.google.com.http > 172.16.1.2.52994: Flags [P.], seq 1:135, ack 450, win 302, length 134
+11:10:58.887870 IP 172.16.1.2.52994 > cache.google.com.http: Flags [.], ack 135, win 64, length 0
+11:10:58.896906 IP kb-edupert.geant.net.http > 172.16.1.2.53060: Flags [P.], seq 157:312, ack 1686, win 71, length 155
+11:10:58.900253 ARP, Request who-has 172.16.1.3 tell 172.16.1.2, length 46
+11:10:58.918113 IP 172.16.1.2.52994 > cache.google.com.http: Flags [P.], seq 450:1436, ack 135, win 64, length 986
+11:10:58.944332 IP 172.16.1.2.53060 > kb-edupert.geant.net.http: Flags [.], ack 312, win 63, length 0
+11:10:58.976836 IP cache.google.com.http > 172.16.1.2.52994: Flags [P.], seq 135:546, ack 1436, win 317, length 411
+11:10:59.008405 IP 172.16.1.2.52994 > cache.google.com.http: Flags [.], ack 546, win 63, length 0
+11:10:59.376873 IP hub.com.pl.https > 172.16.1.7.50838: Flags [.], ack 1788159688, win 65535, length 0
+11:10:59.377696 IP 172.16.1.7.50838 > hub.com.pl.https: Flags [.], ack 1, win 16800, length 0
+11:10:59.552550 IP 172.16.1.2.53060 > kb-edupert.geant.net.http: Flags [P.], seq 1686:2566, ack 312, win 63, length 880
+11:10:59.636815 IP cache.google.com.http > 172.16.1.7.51077: Flags [F.], seq 1745226187, ack 500707348, win 237, length 0
+11:10:59.638111 IP 172.16.1.7.51077 > cache.google.com.http: Flags [.], ack 1, win 62, length 0
+11:10:59.646750 IP kb-edupert.geant.net.http > 172.16.1.2.53060: Flags [P.], seq 312:561, ack 2566, win 78, length 249
+11:10:59.689151 IP 172.16.1.2.53060 > kb-edupert.geant.net.http: Flags [.], ack 561, win 62, length 0
+11:10:59.752284 IP 172.16.0.10.56380 > 151.193.120.146.https: UDP, length 109
+11:10:59.807631 ARP, Request who-has ns.ls.lv tell 172.16.1.101, length 46
+11:10:59.846671 IP 151.193.120.146.https > 172.16.0.10.56380: UDP, length 93
+11:10:59.886717 IP 151.193.120.146.https > 172.16.0.10.56380: UDP, length 109
+11:11:00.081849 IP 172.16.0.10.56380 > 151.193.120.146.https: UDP, length 93
+11:11:00.296616 IP 172.16.1.2.53065 > 162.159.242.165.https: Flags [S], seq 3347973330, win 8192, options [mss 1460,nop,wscale 8,nop,nop,sackOK], length 0
+11:11:00.346664 IP 162.159.242.165.https > 172.16.1.2.53065: Flags [S.], seq 1282510547, ack 3347973331, win 29200, options [mss 1400,nop,nop,sackOK,nop,wscale 10], length 0
+11:11:00.347556 IP 172.16.1.2.53065 > 162.159.242.165.https: Flags [.], ack 1, win 64, length 0
+11:11:00.348531 IP 172.16.1.2.53065 > 162.159.242.165.https: Flags [P.], seq 1:228, ack 1, win 64, length 227
+11:11:00.427416 IP 162.159.242.165.https > 172.16.1.2.53065: Flags [.], ack 228, win 30, length 0
+11:11:00.427470 IP 162.159.242.165.https > 172.16.1.2.53065: Flags [.], seq 1:1401, ack 228, win 30, length 1400
+11:11:00.428503 IP 162.159.242.165.https > 172.16.1.2.53065: Flags [.], seq 1401:2801, ack 228, win 30, length 1400
+11:11:00.429654 IP 162.159.242.165.https > 172.16.1.2.53065: Flags [P.], seq 2801:3643, ack 228, win 30, length 842
+11:11:00.430278 IP 172.16.1.2.53065 > 162.159.242.165.https: Flags [.], ack 2801, win 64, length 0
+11:11:00.456763 IP 172.16.1.2.53065 > 162.159.242.165.https: Flags [.], ack 3643, win 61, length 0
+11:11:00.469057 IP 172.16.1.2.53065 > 162.159.242.165.https: Flags [P.], seq 228:419, ack 3643, win 61, length 191
+11:11:00.536858 IP 162.159.242.165.https > 172.16.1.2.53065: Flags [P.], seq 3643:3901, ack 419, win 31, length 258
+11:11:00.536952 IP 162.159.242.165.https > 172.16.1.2.53065: Flags [P.], seq 3901:3974, ack 419, win 31, length 73
+11:11:00.540349 IP 172.16.1.2.53065 > 162.159.242.165.https: Flags [P.], seq 419:917, ack 3901, win 60, length 498
+11:11:00.568026 IP 172.16.1.2.53065 > 162.159.242.165.https: Flags [.], ack 3974, win 60, length 0
+11:11:00.636643 IP 162.159.242.165.https > 172.16.1.2.53065: Flags [.], ack 917, win 32, length 0
+11:11:00.807621 ARP, Request who-has ns.ls.lv tell 172.16.1.101, length 46
+11:11:00.905184 ARP, Request who-has 172.16.1.3 tell 172.16.1.2, length 46
+11:11:01.296915 IP 162.159.242.165.https > 172.16.1.2.53065: Flags [P.], seq 3974:4537, ack 917, win 32, length 563
+11:11:01.297438 IP 162.159.242.165.https > 172.16.1.2.53065: Flags [P.], seq 4537:5795, ack 917, win 32, length 1258
+11:11:01.298473 IP 162.159.242.165.https > 172.16.1.2.53065: Flags [P.], seq 5795:5832, ack 917, win 32, length 37
+11:11:01.316305 IP 172.16.1.2.53065 > 162.159.242.165.https: Flags [.], ack 5795, win 64, length 0
+11:11:01.341868 IP 172.16.1.2.53065 > 162.159.242.165.https: Flags [P.], seq 917:1227, ack 5832, win 64, length 310
+11:11:01.396788 IP 162.159.242.165.https > 172.16.1.2.53065: Flags [.], ack 1227, win 33, length 0
+11:11:01.396842 IP 162.159.242.165.https > 172.16.1.2.53065: Flags [P.], seq 5832:6395, ack 1227, win 33, length 563
+11:11:01.429942 IP 172.16.1.2.53065 > 162.159.242.165.https: Flags [.], ack 6395, win 62, length 0
+11:11:01.676668 IP ec2-54-229-18-192.eu-west-1.compute.amazonaws.com.https > 172.16.1.7.50952: Flags [F.], seq 31, ack 1, win 79, length 0
+11:11:01.678306 IP 172.16.1.7.50952 > ec2-54-229-18-192.eu-west-1.compute.amazonaws.com.https: Flags [.], ack 32, win 61, length 0
+11:11:01.902045 ARP, Request who-has 172.16.1.3 tell 172.16.1.2, length 46
+11:11:02.046688 IP 74.217.78.231.http > 172.16.1.7.50984: Flags [F.], seq 956582524, ack 2217021038, win 262, length 0
+11:11:02.047823 IP 172.16.1.7.50984 > 74.217.78.231.http: Flags [.], ack 1, win 62, length 0
+11:11:02.056608 IP edge-liverail-shv-01-ams2.facebook.com.http > 172.16.1.7.50916: Flags [F.], seq 498519766, ack 286907081, win 89, length 0
+11:11:02.057469 IP 172.16.1.7.50916 > edge-liverail-shv-01-ams2.facebook.com.http: Flags [.], ack 1, win 65, length 0
+11:11:02.240278 IP6 fe80::b91f:dd5a:43cb:f104.57270 > ff02::c.1900: UDP, length 146
+11:11:02.306684 IP 196.138.251.23.bc.googleusercontent.com.http > 172.16.1.7.50919: Flags [F.], seq 2256495084, ack 1751341460, win 15004, length 0
+11:11:02.307783 IP 172.16.1.7.50919 > 196.138.251.23.bc.googleusercontent.com.http: Flags [.], ack 1, win 16251, length 0
+11:11:02.707577 IP 172.16.1.7.51096 > interia.hit.gemius.pl.http: Flags [F.], seq 0, ack 1, win 16137, length 0
+11:11:02.747848 IP 172.16.1.101.5678 > 255.255.255.255.5678: UDP, length 66
+11:11:02.747985 CDPv1, ttl: 120s, Device-ID 'MikroTik', length 61
+11:11:02.836713 IP interiaao.hit.gemius.pl.https > 172.16.1.7.50840: Flags [.], ack 785918305, win 65535, length 0
+11:11:02.837473 IP 172.16.1.7.50840 > interiaao.hit.gemius.pl.https: Flags [.], ack 1, win 16111, length 0
+11:11:02.901845 ARP, Request who-has 172.16.1.3 tell 172.16.1.2, length 46
+11:11:03.246678 IP 196.138.251.23.bc.googleusercontent.com.http > 172.16.1.7.50944: Flags [F.], seq 3312404257, ack 810511091, win 14904, length 0
+11:11:03.247928 IP 172.16.1.7.50944 > 196.138.251.23.bc.googleusercontent.com.http: Flags [.], ack 1, win 16211, length 0
+11:11:03.336656 IP 173.193.251.194-static.reverse.softlayer.com.http > 172.16.1.7.50869: Flags [F.], seq 1308425643, ack 3308644580, win 164, length 0
+11:11:03.337658 IP 172.16.1.7.50869 > 173.193.251.194-static.reverse.softlayer.com.http: Flags [.], ack 1, win 60, length 0
+11:11:03.405788 IP 172.16.1.7.51013 > ec2-54-247-68-89.eu-west-1.compute.amazonaws.com.http: Flags [F.], seq 1, ack 1, win 65, length 0
+11:11:03.406071 IP 172.16.1.7.50869 > 173.193.251.194-static.reverse.softlayer.com.http: Flags [F.], seq 1, ack 1, win 60, length 0
+11:11:03.406343 IP 172.16.1.7.50913 > ec2-54-171-228-71.eu-west-1.compute.amazonaws.com.http: Flags [F.], seq 1, ack 1, win 60, length 0
+11:11:03.406602 IP 172.16.1.7.50796 > cv.interia.pl.http: Flags [F.], seq 1, ack 1, win 1229, length 0
+11:11:03.406865 IP 172.16.1.7.51028 > ec2-54-229-29-25.eu-west-1.compute.amazonaws.com.http: Flags [F.], seq 1, ack 1, win 61, length 0
+11:11:03.407186 IP 172.16.1.7.50807 > i.hub.com.pl.http: Flags [F.], seq 1, ack 1, win 322, length 0
+11:11:03.407473 IP 172.16.1.7.50794 > cv.interia.pl.http: Flags [F.], seq 1, ack 1, win 660, length 0
+11:11:03.407704 IP 172.16.1.7.51040 > ec2-54-236-178-88.compute-1.amazonaws.com.http: Flags [F.], seq 1, ack 1, win 63, length 0
+11:11:03.407944 IP 172.16.1.7.50984 > 74.217.78.231.http: Flags [F.], seq 1, ack 1, win 62, length 0
+11:11:03.408193 IP 172.16.1.7.50916 > edge-liverail-shv-01-ams2.facebook.com.http: Flags [F.], seq 1, ack 1, win 65, length 0
+11:11:03.408418 IP 172.16.1.7.50798 > cv.interia.pl.http: Flags [F.], seq 1, ack 1, win 628, length 0
+11:11:03.408658 IP 172.16.1.7.51012 > ec2-54-209-18-61.compute-1.amazonaws.com.http: Flags [F.], seq 3422789714, ack 3821701163, win 64, length 0
+
