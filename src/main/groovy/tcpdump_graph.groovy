@@ -72,4 +72,29 @@ set ylabel "Load"
 set title "Load Averages"
 set key left box
 plot "d:\\gnuplot.txt" using 1:2 index 0 title "ahost" with lines
+
+
+
+# root class and defaultl class definition and default class
+tc qdisc add dev eth0 root handle 1: hfsc default 2
+tc class add dev eth0 parent 1: classid 1:2 hfsc ls rate 1000kbit ul rate 1000kbit
+
+#jesli chcemy "pomoc" pakietom dotrzec do celu, algorytm sfq
+tc qdisc add dev eth0 parent 1:2 handle 2:0 sfq perturb 10
+
+# stworzymy teraz specjalna kolejke dla ruchu priorytetowego, aby pasmo sie dzielilo
+
+tc class add dev eth0 parent 1: classid 1:1 hfsc ls rate 100kbit
+tc class add dev eth0 parent 1:1 classid 1:3 hfsc ls rate 40kbit
+tc class add dev eth0 parent 1:1 classid 1:4 hfsc ls rate 10kbit
+
+#Filtry na dport 5001 i 5002
+tc filter add dev eth0 parent 1: protocol ip prio 1 u32 match ip dport 5001 0xffff classid 1:3
+tc filter add dev eth0 parent 1: protocol ip prio 1 u32 match ip dport 5002 0xffff classid 1:4
+
+tc qdisc add dev eth0 parent 1:1 handle 1:0 sfq perturb 10
+# match icmp traffic
+tc filter add dev eth0 parent 1: protocol ip prio 1 u32 match ip protocol 1 0xff classid 1:1
+
+
  */
