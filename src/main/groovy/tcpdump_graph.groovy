@@ -1,8 +1,7 @@
+import java.nio.file.Files
+
 import java.time.LocalTime
 import java.util.stream.Collectors
-
-import static java.nio.file.Files.lines
-
 import java.nio.charset.CharsetDecoder
 import java.nio.charset.CodingErrorAction
 import java.nio.charset.StandardCharsets
@@ -11,13 +10,12 @@ import java.util.function.Predicate
 
 final String TCPDUMP_INPUT_FILE = '..\\resources\\out1.txt'
 final String GNUPLOT_OUTPUT_FILE = '..\\resources\\gnuplot.txt'
-final String FILTER = "192.168.56.1.5001"
+final String FILTER = '192.168.56.1.5001'
 final int TIME_SEGMENT_LENGTH = 8
-final def LENGTH_REGEXP = /.*length (\d+).*/
+final LENGTH_REGEXP = /.*length (\d+).*/
 final int HOUR_POSITION = 0
 final int MINUTE_POSITION = 1
 final int SECONDS_POSITION = 2
-
 
 println("Start")
 
@@ -31,7 +29,7 @@ def predicate = new Predicate<String>() {
 CharsetDecoder dec = StandardCharsets.UTF_8.newDecoder()
         .onMalformedInput(CodingErrorAction.IGNORE)
 
-List<String> filtered = lines(Paths.get(TCPDUMP_INPUT_FILE), dec.charset()).filter(predicate).collect(Collectors.toList());
+List<String> filtered = Files.lines(Paths.get(TCPDUMP_INPUT_FILE), dec.charset()).filter(predicate).collect(Collectors.toList());
 Map<LocalTime, Double> timeSizeMap = [:]
 filtered.each {
     def timeTokens = it.substring(0, TIME_SEGMENT_LENGTH).tokenize(':');
