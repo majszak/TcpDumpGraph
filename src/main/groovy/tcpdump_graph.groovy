@@ -1,3 +1,4 @@
+import java.math.MathContext
 import java.nio.file.Files
 import java.time.Duration
 import java.time.LocalTime
@@ -11,6 +12,7 @@ import java.util.function.Predicate
 final String TCPDUMP_INPUT_FILE = '..\\resources\\out'
 final String GNUPLOT_SPEED_OUTPUT_FILE = '..\\resources\\gnuplot_speed'
 final String GNUPLOT_DELAY_OUTPUT_FILE = '..\\resources\\gnuplot_delay'
+final String GNUPLOT_JITTER_OUTPUT_FILE = '..\\resources\\gnuplot_jitter'
 final String FILTER = '192.168.56.1.500'
 final int TIME_SEGMENT_LENGTH = 8
 final int TIME_NANOSECONDS_LENGTH = 6
@@ -32,7 +34,7 @@ CharsetDecoder dec = StandardCharsets.UTF_8.newDecoder()
         .onMalformedInput(CodingErrorAction.IGNORE)
 
 //add prefix
-[1,2].each {
+[1, 2].each {
     List<String> filtered = Files.lines(Paths.get(TCPDUMP_INPUT_FILE + it.toString()), dec.charset()).filter(predicate).collect(Collectors.toList());
     Map<LocalTime, Double> timeSpeedMap = [:]
     Map<LocalTime, Double> timeDelayMap = [:]
@@ -72,8 +74,23 @@ CharsetDecoder dec = StandardCharsets.UTF_8.newDecoder()
     }
 
     println 'Number of seconds processed: ' + timeSpeedMap.size()
+    println 'Number of miliseconds processed: ' + timeDelayMap.size()
 
-    def gnuplotFile = new File(GNUPLOT_SPEED_OUTPUT_FILE+ it.toString())
+    println 'Calculating jitter'
+
+    boolean isFirst = true
+    Double previousDelay = 0
+    timeDelayMap.each {
+        if (isFirst) {
+            isFirst = false
+        } else {
+            timeJitterMap.put(it.key, (it.value - previousDelay).abs())
+        }
+        previousDelay = it.value
+    }
+
+    println 'WRITING spped file'
+    def gnuplotFile = new File(GNUPLOT_SPEED_OUTPUT_FILE + it.toString())
     def writerOverwrite = gnuplotFile.newWriter()
     writerOverwrite << ''
     timeSpeedMap.each {
@@ -83,12 +100,23 @@ CharsetDecoder dec = StandardCharsets.UTF_8.newDecoder()
         gnuplotFile << '\n'
     }
 
-    println 'Number of miliseconds processed: ' + timeDelayMap.size()
 
-    gnuplotFile = new File(GNUPLOT_DELAY_OUTPUT_FILE+ it.toString())
+    println 'WRITING delay file'
+    gnuplotFile = new File(GNUPLOT_DELAY_OUTPUT_FILE + it.toString())
     writerOverwrite = gnuplotFile.newWriter()
     writerOverwrite << ''
     timeDelayMap.each {
+        gnuplotFile << it.key
+        gnuplotFile << ' '
+        gnuplotFile << it.value
+        gnuplotFile << '\n'
+    }
+
+    println 'WRITING jitter file'
+    gnuplotFile = new File(GNUPLOT_JITTER_OUTPUT_FILE + it.toString())
+    writerOverwrite = gnuplotFile.newWriter()
+    writerOverwrite << ''
+    timeJitterMap.each {
         gnuplotFile << it.key
         gnuplotFile << ' '
         gnuplotFile << it.value
@@ -111,7 +139,11 @@ set title "HFSC experiments"
 set key left box
 plot "d:\\MM\\Programowanie\\Java\\TcpDumpGraph\\src\\main\\resources\\gnuplot_speed1" using 1:2 index 0 title "port 5001" with lines lw 2, \
  "d:\\MM\\Programowanie\\Java\\TcpDumpGraph\\src\\main\\resources\\gnuplot_speed2" using 1:2 index 0 title "port 5002" with lines lw 2
-
+#
+#
+#
+#
+#
 
 
 set terminal pdf
@@ -129,47 +161,50 @@ set key left box
 plot "d:\\MM\\Programowanie\\Java\\TcpDumpGraph\\src\\main\\resources\\gnuplot_delay1" using 1:2 index 0 title "port 5001" with lines lw 2, \
  "d:\\MM\\Programowanie\\Java\\TcpDumpGraph\\src\\main\\resources\\gnuplot_delay2" using 1:2 index 0 title "port 5002" with lines lw 2
 
+#
+#
+#
+#
+
+set terminal pdf
+set xdata time
+set timefmt "%H:%M:%S"
+set output "d:\\MM\\Programowanie\\Java\\TcpDumpGraph\\src\\main\\resources\\gnuplot_jitter.pdf"
+# time range must be in same format as data file
+# set xrange ["Mar-25-00:00:00":"Mar-26-00:00:00"]
+# set yrange [0:50]
+set grid
+set xlabel "Time [s]"
+set ylabel "Jitter [ms]"
+set title "HFSC experiments"
+set key left box
+plot "d:\\MM\\Programowanie\\Java\\TcpDumpGraph\\src\\main\\resources\\gnuplot_jitter1" using 1:2 index 0 title "port 5001" with lines lw 2, \
+ "d:\\MM\\Programowanie\\Java\\TcpDumpGraph\\src\\main\\resources\\gnuplot_jitter2" using 1:2 index 0 title "port 5002" with lines lw 2
+
+
 
 !!! WAZNE
 VirtualBox z karta sieciowa ustawiona na "internal network" (dostanie adres 192.168.56.101)
-
 #2) HFSC test
-
 # root class and defaultl class definition and default class
 tc qdisc add dev eth0 root handle 1: hfsc default 2
 tc class add dev eth0 parent 1: classid 1:2 hfsc ls rate 1000kbit ul rate 1000kbit
-
 #jesli chcemy "pomoc" pakietom dotrzec do celu, algorytm sfq
 tc qdisc add dev eth0 parent 1:2 handle 2:0 sfq perturb 10
-
 # stworzymy teraz specjalna kolejke dla ruchu priorytetowego, aby pasmo sie dzielilo
-
 tc class add dev eth0 parent 1: classid 1:1 hfsc ls rate 100kbit
 tc class add dev eth0 parent 1:1 classid 1:3 hfsc ls rate 40kbit
 tc class add dev eth0 parent 1:1 classid 1:4 hfsc ls rate 10kbit
-
 #Filtry na dport 5001 i 5002
 tc filter add dev eth0 parent 1: protocol ip prio 1 u32 match ip dport 5001 0xffff classid 1:3
 tc filter add dev eth0 parent 1: protocol ip prio 1 u32 match ip dport 5002 0xffff classid 1:4
-
 tc qdisc add dev eth0 parent 1:1 handle 1:0 sfq perturb 10
 # match icmp traffic
 tc filter add dev eth0 parent 1: protocol ip prio 1 u32 match ip protocol 1 0xff classid 1:1
-
-
-
-
-
 #jperf SERVER na Windows
-
-
 tcpdump -n dst port 5001 > out1
 tcpdump -n dst port 5002 > out2
-
 3) iperf client (10s, 100s, 10Mbit)
 iperf -c 192.168.56.1 -u -P 1 -i 1 -p 5001 -f k -b 10.0M -t 100 -T 1 &
 iperf -c 192.168.56.1 -u -P 1 -i 1 -p 5002 -f k -b 10.0M -t 10 -T 1 &
-
-
-
  */
