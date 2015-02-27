@@ -13,6 +13,7 @@ final String TCPDUMP_INPUT_FILE = '..\\resources\\out'
 final String GNUPLOT_SPEED_OUTPUT_FILE = '..\\resources\\gnuplot_speed'
 final String GNUPLOT_DELAY_OUTPUT_FILE = '..\\resources\\gnuplot_delay'
 final String GNUPLOT_JITTER_OUTPUT_FILE = '..\\resources\\gnuplot_jitter'
+final String GNUPLOT_CUMULATIVE_OUTPUT_FILE = '..\\resources\\gnuplot_cumulative'
 final String FILTER = '192.168.56.1.500'
 final int TIME_SEGMENT_LENGTH = 8
 final int TIME_NANOSECONDS_LENGTH = 6
@@ -36,11 +37,13 @@ CharsetDecoder dec = StandardCharsets.UTF_8.newDecoder()
 //add prefix
 [1, 2].each {
     List<String> filtered = Files.lines(Paths.get(TCPDUMP_INPUT_FILE + it.toString()), dec.charset()).filter(predicate).collect(Collectors.toList());
+    Map<LocalTime, Double> timeCumulativeMap = [:]
     Map<LocalTime, Double> timeSpeedMap = [:]
     Map<LocalTime, Double> timeDelayMap = [:]
     Map<LocalTime, Double> timeJitterMap = [:]
 
     LocalTime previousTime
+    Double currentValueCum = 0
     boolean doNotCreate = false
 
     filtered.each {
@@ -67,10 +70,14 @@ CharsetDecoder dec = StandardCharsets.UTF_8.newDecoder()
         Double newValue = matcher[0][1] as Double
         newValue = newValue * 8 / 1000
         Double currentValue = timeSpeedMap.get(keySpeed) == null ? 0 : timeSpeedMap.get(keySpeed)
+        currentValueCum =  currentValueCum + newValue
         cumulativeValue = newValue + currentValue
         timeSpeedMap.put(keySpeed, cumulativeValue)
+        timeCumulativeMap.put(currentTime, newValue + currentValueCum)
         //skip first element
         if (!doNotCreate) timeDelayMap.put(currentTime, delay / 1000000)
+
+        previousTime = currentTime
     }
 
     println 'Number of seconds processed: ' + timeSpeedMap.size()
@@ -89,7 +96,7 @@ CharsetDecoder dec = StandardCharsets.UTF_8.newDecoder()
         previousDelay = it.value
     }
 
-    println 'WRITING spped file'
+    println 'WRITING speed file'
     def gnuplotFile = new File(GNUPLOT_SPEED_OUTPUT_FILE + it.toString())
     def writerOverwrite = gnuplotFile.newWriter()
     writerOverwrite << ''
@@ -117,6 +124,17 @@ CharsetDecoder dec = StandardCharsets.UTF_8.newDecoder()
     writerOverwrite = gnuplotFile.newWriter()
     writerOverwrite << ''
     timeJitterMap.each {
+        gnuplotFile << it.key
+        gnuplotFile << ' '
+        gnuplotFile << it.value
+        gnuplotFile << '\n'
+    }
+
+    println 'WRITING cumulative file'
+    gnuplotFile = new File(GNUPLOT_CUMULATIVE_OUTPUT_FILE + it.toString())
+    writerOverwrite = gnuplotFile.newWriter()
+    writerOverwrite << ''
+    timeCumulativeMap.each {
         gnuplotFile << it.key
         gnuplotFile << ' '
         gnuplotFile << it.value
@@ -155,7 +173,7 @@ set output "d:\\MM\\Programowanie\\Java\\TcpDumpGraph\\src\\main\\resources\\gnu
 # set yrange [0:50]
 set grid
 set xlabel "Time [s]"
-set ylabel "Speed [Kbit\\s]"
+set ylabel "Packet delay [ms]"
 set title "HFSC experiments"
 set key left box
 plot "d:\\MM\\Programowanie\\Java\\TcpDumpGraph\\src\\main\\resources\\gnuplot_delay1" using 1:2 index 0 title "port 5001" with lines lw 2, \
@@ -181,23 +199,48 @@ set key left box
 plot "d:\\MM\\Programowanie\\Java\\TcpDumpGraph\\src\\main\\resources\\gnuplot_jitter1" using 1:2 index 0 title "port 5001" with lines lw 2, \
  "d:\\MM\\Programowanie\\Java\\TcpDumpGraph\\src\\main\\resources\\gnuplot_jitter2" using 1:2 index 0 title "port 5002" with lines lw 2
 
+#
+#
+#
+#
+
+set terminal pdf
+set xdata time
+set timefmt "%H:%M:%S"
+set output "d:\\MM\\Programowanie\\Java\\TcpDumpGraph\\src\\main\\resources\\gnuplot_cumulative.pdf"
+# time range must be in same format as data file
+# set xrange ["Mar-25-00:00:00":"Mar-26-00:00:00"]
+# set yrange [0:50]
+set grid
+set xlabel "Time [s]"
+set ylabel "Received bits"
+set title "HFSC experiments"
+set key left box
+plot "d:\\MM\\Programowanie\\Java\\TcpDumpGraph\\src\\main\\resources\\gnuplot_cumulative1" using 1:2 index 0 title "port 5001" with lines lw 2, \
+ "d:\\MM\\Programowanie\\Java\\TcpDumpGraph\\src\\main\\resources\\gnuplot_cumulative2" using 1:2 index 0 title "port 5002" with lines lw 2
+
 
 
 !!! WAZNE
 VirtualBox z karta sieciowa ustawiona na "internal network" (dostanie adres 192.168.56.101)
+
+
 #2) HFSC test
 # root class and defaultl class definition and default class
 tc qdisc add dev eth0 root handle 1: hfsc default 2
 tc class add dev eth0 parent 1: classid 1:2 hfsc ls rate 1000kbit ul rate 1000kbit
 #jesli chcemy "pomoc" pakietom dotrzec do celu, algorytm sfq
 tc qdisc add dev eth0 parent 1:2 handle 2:0 sfq perturb 10
+
 # stworzymy teraz specjalna kolejke dla ruchu priorytetowego, aby pasmo sie dzielilo
-tc class add dev eth0 parent 1: classid 1:1 hfsc ls rate 100kbit
-tc class add dev eth0 parent 1:1 classid 1:3 hfsc ls rate 40kbit
-tc class add dev eth0 parent 1:1 classid 1:4 hfsc ls rate 10kbit
+tc class add dev eth0 parent 1: classid 1:1 hfsc ls rate 1000kbit
+tc class add dev eth0 parent 1:1 classid 1:3 hfsc ls rate 400kbit
+tc class add dev eth0 parent 1:1 classid 1:4 hfsc ls rate 100kbit
 #Filtry na dport 5001 i 5002
 tc filter add dev eth0 parent 1: protocol ip prio 1 u32 match ip dport 5001 0xffff classid 1:3
 tc filter add dev eth0 parent 1: protocol ip prio 1 u32 match ip dport 5002 0xffff classid 1:4
+
+
 tc qdisc add dev eth0 parent 1:1 handle 1:0 sfq perturb 10
 # match icmp traffic
 tc filter add dev eth0 parent 1: protocol ip prio 1 u32 match ip protocol 1 0xff classid 1:1
